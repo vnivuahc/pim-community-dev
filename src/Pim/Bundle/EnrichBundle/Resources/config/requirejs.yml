@@ -185,6 +185,11 @@ config:
                         urls:
                             get: pim_enrich_product_rest_get
                             list: pim_enrich_product_rest_index
+                product-grid:
+                    module: pim/product-grid-fetcher
+                    options:
+                        urls:
+                            list: pim_enrich_product_grid_rest_index
                 product-model:
                     module: pim/product-model-fetcher
                     options:
@@ -559,7 +564,7 @@ config:
         pim/attributeoptionview:            pimenrich/js/pim-attributeoptionview
         pim/item/tableview:                 pimenrich/js/pim-item-tableview
         pim/item/view:                      pimenrich/js/pim-item-view
-        pim/i18n:                           pimenrich/js/i18n
+        pim/i18n:                           pimenrich/js/i18n.ts
         pim/user-context:                   pimenrich/js/user-context
         pim/date-context:                   pimenrich/js/date-context
         pim/error:                          pimenrich/js/error/error
@@ -585,6 +590,7 @@ config:
         pim/locale-fetcher:          pimenrich/js/fetcher/locale-fetcher
         pim/product-fetcher:         pimenrich/js/fetcher/product-fetcher
         pim/product-model-fetcher:   pimenrich/js/fetcher/product-model-fetcher
+        pim/product-grid-fetcher:    pimenrich/js/fetcher/product-grid-fetcher.ts
         pim/family-fetcher:          pimenrich/js/fetcher/family-fetcher
 
         # Remover
@@ -961,6 +967,8 @@ config:
         pim/grid/locale-switcher:   pimenrich/js/product/grid/locale-switcher
         pim/grid/category-switcher: pimenrich/js/product/grid/category-switcher
         pim/grid/mass-actions:      pimenrich/js/grid/mass-actions
+        pim/product/grid/container: pimenrich/js/product/grid/container
+        pim/product/grid/bridge:    pimenrich/js/product/grid/bridge.tsx
 
         # Category tree
         pim/grid/category-tree:      pimenrich/js/product/grid/category-tree

@@ -157,6 +157,13 @@ module.exports = {
                         cacheDirectory: 'web/cache'
                     }
                 }
+            },
+
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                include: /(web\/bundles|webpack|spec)/,
+                exclude: /lib|node_modules|vendor/,
             }
         ]
     },
