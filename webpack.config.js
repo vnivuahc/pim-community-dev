@@ -57,7 +57,9 @@ module.exports = {
     devtool: 'source-map',
     resolve: {
         symlinks: false,
-        alias: _.mapKeys(aliases, (path, key) => `${key}$`)
+        alias: _.mapKeys(aliases, (path, key) => `${key}$`),
+        modules: [path.resolve('./web/bundles'), path.resolve('./node_modules')],
+        extensions: ['.js', '.json', '.ts']
     },
     module: {
         rules: [
@@ -144,7 +146,6 @@ module.exports = {
                 ]
             },
 
-
             // Process the pim webpack files with babel
             {
                 test: /\.js$/,
@@ -161,8 +162,8 @@ module.exports = {
 
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
-                include: /(web\/bundles|webpack|spec)/,
+                use: ['ts-loader'],
+                include: /(web\/bundles)/,
                 exclude: /lib|node_modules|vendor/,
             }
         ]

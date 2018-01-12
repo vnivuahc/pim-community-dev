@@ -25,9 +25,11 @@
     "dep-diff": "1.0.1",
     "jest": "^22.0.5",
     "read-pkg": "2.0.0",
+    "ts-jest": "^22.0.1",
     "typescript-babel-jest": "^1.0.5"
   },
   "dependencies": {
+    "@types/jquery": "^3.2.17",
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
@@ -69,5 +71,34 @@
     "webpack-livereload-plugin": "0.11.0",
     "write-file-webpack-plugin": "4.1.0",
     "yamljs": "0.3.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "vendor"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "projects": [
+      "<rootDir>/web/bundles"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "web/bundles"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ]
   }
 }
