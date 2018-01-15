@@ -59,7 +59,7 @@ module.exports = {
         symlinks: false,
         alias: _.mapKeys(aliases, (path, key) => `${key}$`),
         modules: [path.resolve('./web/bundles'), path.resolve('./node_modules')],
-        extensions: ['.js', '.json', '.ts']
+        extensions: ['.js', '.json', '.ts', '.tsx']
     },
     module: {
         rules: [
