@@ -10,7 +10,8 @@
     "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
     "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
     "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"",
-    "test": "jest"
+    "before-commit": "yarn prettier && yarn test",
+    "test": "jest --no-cache"
   },
   "repository": {
     "type": "git",
