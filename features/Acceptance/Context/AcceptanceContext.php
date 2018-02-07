@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pim\Behat\Context;
+namespace Pim\Acceptance\Context;
 
 use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Repository\IdentifiableObjectRepositoryInterface;

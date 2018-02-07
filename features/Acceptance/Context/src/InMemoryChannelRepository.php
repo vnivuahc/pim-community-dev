@@ -1,6 +1,6 @@
 <?php
 
-namespace Pim\Behat;
+namespace Pim\Acceptance\src;
 
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Collections\ArrayCollection;
