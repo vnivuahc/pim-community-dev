@@ -1,0 +1,6 @@
+imports:
+    - { resource: config_behat.yml }
+
+parameters:
+    pim_catalog.repository.locale.class: Pim\Acceptance\src\InMemoryLocaleRepository
+    pim_catalog.repository.channel.class: Pim\Acceptance\src\InMemoryChannelRepository

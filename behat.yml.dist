@@ -108,3 +108,26 @@ default:
             factory:
                 page_parameters:
                     base_url: http://akeneo-pim-behat.local/
+
+acceptance:
+    suites:
+        acceptance:
+            paths:
+                - '%paths.base%/features/locale'
+            contexts:
+                - Pim\Behat\Context\AcceptanceContext:
+                    - '@pim_catalog.factory.locale'
+                    - '@pim_catalog.updater.locale'
+                    - '@pim_catalog.repository.locale'
+                    - '@pim_catalog.factory.channel'
+                    - '@pim_catalog.updater.channel'
+                    - '@pim_catalog.repository.channel'
+                    - '@pim_catalog.repository.locale'
+                    - '@pim_catalog.repository.channel'
+                    - '@validator'
+    extensions:
+        Behat\ChainedStepsExtension: ~
+        Behat\Symfony2Extension:
+            kernel:
+                env: acceptance
+                debug: false
