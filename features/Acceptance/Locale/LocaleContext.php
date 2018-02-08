@@ -13,21 +13,18 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LocaleContext implements BehatContext
 {
-    private $localeFactory;
-    private $localeUpdater;
     private $localeRepository;
-    private $validator;
+    /**
+     * @var LocaleBuilder
+     */
+    private $localeBuilder;
 
     public function __construct(
-        SimpleFactoryInterface $localeFactory,
-        ObjectUpdaterInterface $localeUpdater,
         InMemoryLocaleRepository $localeRepository,
-        ValidatorInterface $validator
+        LocaleBuilder $localeBuilder
     ) {
-        $this->localeFactory = $localeFactory;
-        $this->localeUpdater = $localeUpdater;
         $this->localeRepository = $localeRepository;
-        $this->validator = $validator;
+        $this->localeBuilder = $localeBuilder;
     }
 
     /**
@@ -39,23 +36,9 @@ class LocaleContext implements BehatContext
         foreach ($localeCodes as $localeCode) {
             $localeCode = trim($localeCode);
 
-            $locale = $this->localeFactory->create();
-            $this->localeUpdater->update($locale, ['code' => $localeCode]);
-            $errors = $this->validator->validate($locale);
+            $locale = $this->localeBuilder->build(['code' => $localeCode]);
 
-            if (0 !== $errors->count()) {
-                foreach ($errors as $error) {
-                    throw new \Exception(
-                        sprintf(
-                            'An error occurred on fixtures installation: path: %s, message: %s',
-                            $error->getPropertyPath(),
-                            $error->getMessage()
-                        )
-                    );
-                }
-            } else {
-                $this->localeRepository->save($locale);
-            }
+            $this->localeRepository->save($locale);
         }
     }
 

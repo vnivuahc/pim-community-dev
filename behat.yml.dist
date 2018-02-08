@@ -116,21 +116,15 @@ acceptance:
         acceptance:
             paths:
                 - '%paths.base%/features/'
-            contexts:
-                - Pim\Acceptance\Locale\LocaleContext:
-                    - '@pim_catalog.factory.locale'
-                    - '@pim_catalog.updater.locale'
-                    - '@pim_catalog.repository.locale'
-                    - '@validator'
-                - Pim\Acceptance\Channel\ChannelContext:
-                    - '@pim_catalog.repository.locale'
-                    - '@pim_catalog.factory.channel'
-                    - '@pim_catalog.updater.channel'
-                    - '@pim_catalog.repository.channel'
-                    - '@validator'
+            contexts_services:
+                - test.locale.context
+                - test.channel.context
     extensions:
         Behat\ChainedStepsExtension: ~
-        Behat\Symfony2Extension:
+        FriendsOfBehat\ContextServiceExtension:
+           imports:
+               - "features/Acceptance/Resources/config/services.yml"
+        FriendsOfBehat\CrossContainerExtension: ~
+        FriendsOfBehat\SymfonyExtension:
             kernel:
                 env: acceptance
-                debug: false

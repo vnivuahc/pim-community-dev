@@ -15,24 +15,26 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ChannelContext implements BehatContext
 {
     protected $localeRepository;
-    protected $channelFactory;
-    protected $channelUpdater;
     protected $channelRepository;
-    protected $validator;
+    /**
+     * @var InMemoryCategoryRepository
+     */
+    private $categoryRepository;
+    /**
+     * @var ChannelBuilder
+     */
+    private $channelBuilder;
 
     public function __construct(
         InMemoryLocaleRepository $localeRepository,
         InMemoryCategoryRepository $categoryRepository,
-        SimpleFactoryInterface $channelFactory,
-        ObjectUpdaterInterface $channelUpdater,
         InMemoryChannelRepository $channelRepository,
-        ValidatorInterface $validator
+        ChannelBuilder $channelBuilder
     ) {
         $this->localeRepository = $localeRepository;
-        $this->channelFactory = $channelFactory;
-        $this->channelUpdater = $channelUpdater;
         $this->channelRepository = $channelRepository;
-        $this->validator = $validator;
+        $this->categoryRepository = $categoryRepository;
+        $this->channelBuilder = $channelBuilder;
     }
 
     /**
@@ -45,23 +47,8 @@ class ChannelContext implements BehatContext
             'locales' => explode(',', $localeCodes)
         ];
 
-        $channel = $this->channelFactory->create();
-        $this->channelUpdater->update($channel, $channelData);
-        $errors = $this->validator->validate($channel);
-
-        if (0 !== $errors->count()) {
-            foreach ($errors as $error) {
-                throw new \Exception(
-                    sprintf(
-                        "An error occurred on fixtures installation:\n- property path: %s\n- message: %s",
-                        $error->getPropertyPath(),
-                        $error->getMessage()
-                    )
-                );
-            }
-        } else {
-            $this->channelRepository->save($channel);
-        }
+        $channel = $this->channelBuilder->build($channelData);
+        $this->channelRepository->save($channel);
     }
 
     /**
