@@ -11,14 +11,14 @@
     "autoload": {
         "psr-0": {
             "": "src/",
-            "Context": "features/",
-            "Pim\\Behat": "features/",
-            "Pim\\Acceptance": "features/Acceptance"
+            "Context": "features/"
         },
         "psr-4": {
             "Pim\\Upgrade\\": "upgrades/",
             "Akeneo\\Test\\IntegrationTestsBundle\\": "tests/IntegrationTestsBundle/",
-            "Akeneo\\Test\\Integration\\": "tests/"
+            "Akeneo\\Test\\Integration\\": "tests/",
+            "Pim\\Behat\\": "features/EndToEnd/",
+            "Pim\\Acceptance\\": "features/Acceptance/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php", "tests/AppKernelTest.php" ]
     },
