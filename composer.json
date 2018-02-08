@@ -18,7 +18,8 @@
             "Akeneo\\Test\\IntegrationTestsBundle\\": "tests/IntegrationTestsBundle/",
             "Akeneo\\Test\\Integration\\": "tests/",
             "Pim\\Behat\\": "features/EndToEnd/",
-            "Pim\\Acceptance\\": "features/Acceptance/"
+            "Pim\\Acceptance\\": "tests/Acceptance/",
+            "Pim\\EndtoEnd\\": "tests/EndtoEnd/"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php", "tests/AppKernelTest.php" ]
     },

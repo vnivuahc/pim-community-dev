@@ -1,22 +1,24 @@
 <?php
 
-namespace Pim\Acceptance\Locale;
+namespace Pim\Acceptance\Category;
 
+use Akeneo\Component\StorageUtils\Repository\IdentifiableObjectRepositoryInterface;
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Pim\Component\Catalog\Model\ChannelInterface;
-use Pim\Component\Catalog\Model\LocaleInterface;
-use Pim\Component\Catalog\Repository\LocaleRepositoryInterface;
+use Doctrine\Common\Persistence\ObjectRepository;
 
-class InMemoryLocaleRepository implements LocaleRepositoryInterface, SaverInterface
+class InMemoryCategoryRepository implements
+    ObjectRepository,
+    IdentifiableObjectRepositoryInterface,
+    SaverInterface
 {
     /** @var Collection */
-    private $locales;
+    private $categories;
 
     public function __construct()
     {
-        $this->locales = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getIdentifierProperties()
@@ -26,65 +28,14 @@ class InMemoryLocaleRepository implements LocaleRepositoryInterface, SaverInterf
 
     public function findOneByIdentifier($code)
     {
-        return $this->locales->get($code);
+        return $this->categories->get($code);
     }
 
-    public function save($locale, array $options = [])
+    public function save($category, array $options = [])
     {
-        $this->locales->set($locale->getCode(), $locale);
+        $this->categories->set($category->getCode(), $category);
     }
 
-    /**
-     * Return an array of activated locales
-     *
-     * @return LocaleInterface[]
-     */
-    public function getActivatedLocales()
-    {
-        // TODO: Implement getActivatedLocales() method.
-    }
-
-    /**
-     * Return an array of activated locales codes
-     *
-     * @return array
-     */
-    public function getActivatedLocaleCodes()
-    {
-        // TODO: Implement getActivatedLocaleCodes() method.
-    }
-
-    /**
-     * Return a query builder for activated locales
-     *
-     * @return mixed
-     */
-    public function getActivatedLocalesQB()
-    {
-        // TODO: Implement getActivatedLocalesQB() method.
-    }
-
-    /**
-     * Get the deleted locales of a channel (the channel is updated but not flushed yet).
-     *
-     * @param ChannelInterface $channel
-     *
-     * @return array the list of deleted locales
-     */
-    public function getDeletedLocalesForChannel(ChannelInterface $channel)
-    {
-        // TODO: Implement getDeletedLocalesForChannel() method.
-    }
-
-    /**
-     * Return the number of activated locales
-     *
-     * @return int
-     */
-    public function countAllActivated()
-    {
-        // TODO: Implement countAllActivated() method.
-    }
 
     /**
      * Finds an object by its primary key / identifier.
@@ -126,7 +77,17 @@ class InMemoryLocaleRepository implements LocaleRepositoryInterface, SaverInterf
      */
     public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
     {
-        // TODO: Implement findBy() method.
+        $categories = [];
+        foreach ($this->categories as $locale) {
+            foreach ($criteria as $key => $value) {
+                $getter = 'get' . ucfirst($key);
+                if ($locale->$getter() === $value) {
+                    $categories[$locale] = $locale;
+                }
+            }
+        }
+
+        return $categories;
     }
 
     /**

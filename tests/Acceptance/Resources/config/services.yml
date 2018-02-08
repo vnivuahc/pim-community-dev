@@ -1,16 +1,30 @@
 services:
     test.channel.builder:
-        class: 'Pim\Acceptance\Channel\ChannelBuilder'
+        class: 'Pim\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.channel'
             - '@__symfony__.pim_catalog.updater.channel'
             - '@__symfony__.validator'
 
     test.locale.builder:
-        class: 'Pim\Acceptance\Locale\LocaleBuilder'
+        class: 'Pim\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.locale'
             - '@__symfony__.pim_catalog.updater.locale'
+            - '@__symfony__.validator'
+
+    test.category.builder:
+        class: 'Pim\Acceptance\ResourceBuilder'
+        arguments:
+            - '@__symfony__.pim_catalog.factory.category'
+            - '@__symfony__.pim_catalog.updater.category'
+            - '@__symfony__.validator'
+
+    test.currency.builder:
+        class: 'Pim\Acceptance\ResourceBuilder'
+        arguments:
+            - '@__symfony__.pim_catalog.factory.currency'
+            - '@__symfony__.pim_catalog.updater.currency'
             - '@__symfony__.validator'
 
     test.locale.context:
@@ -27,6 +41,9 @@ services:
             - '@__symfony__.pim_catalog.repository.locale'
             - '@__symfony__.pim_catalog.repository.category'
             - '@__symfony__.pim_catalog.repository.channel'
+            - '@__symfony__.pim_catalog.repository.currency'
+            - '@test.category.builder'
             - '@test.channel.builder'
+            - '@test.currency.builder'
         tags:
             - { name: fob.context_service }

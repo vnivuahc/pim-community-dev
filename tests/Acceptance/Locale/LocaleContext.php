@@ -8,6 +8,7 @@ use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
 use Behat\Behat\Context\Context as BehatContext;
 use PHPUnit\Framework\Assert;
+use Pim\Acceptance\ResourceBuilder;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LocaleContext implements BehatContext
@@ -20,7 +21,7 @@ class LocaleContext implements BehatContext
 
     public function __construct(
         InMemoryLocaleRepository $localeRepository,
-        LocaleBuilder $localeBuilder
+        ResourceBuilder $localeBuilder
     ) {
         $this->localeRepository = $localeRepository;
         $this->localeBuilder = $localeBuilder;
@@ -47,7 +48,7 @@ class LocaleContext implements BehatContext
     public function iShouldHaveActivatedLocales(string $localeCodes)
     {
         foreach (explode(',', $localeCodes) as $localeCode) {
-            $locale = $this->localeRepository->findOneByIdentifier($localeCode);
+            $locale = $this->localeRepository->findOneByIdentifier(trim($localeCode));
             Assert::assertTrue($locale->isActivated());
         }
     }

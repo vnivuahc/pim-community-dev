@@ -115,16 +115,57 @@ acceptance:
     suites:
         acceptance:
             paths:
-                - '%paths.base%/features/features/'
+                - '%paths.base%/tests/features/'
             contexts_services:
                 - test.locale.context
                 - test.channel.context
+            filters:
+                tags: '@acceptance'
+
     extensions:
         Behat\ChainedStepsExtension: ~
         FriendsOfBehat\ContextServiceExtension:
            imports:
-               - "features/Acceptance/Resources/config/services.yml"
+               - "tests/Acceptance/Resources/config/services.yml"
         FriendsOfBehat\CrossContainerExtension: ~
         FriendsOfBehat\SymfonyExtension:
             kernel:
                 env: acceptance
+
+ui:
+    suites:
+        ui:
+            paths:
+                - '%paths.base%/tests/features/'
+            contexts_services:
+                - test.locale.context
+                - test.channel.context
+            filters:
+                tags: '@ui'
+
+    extensions:
+        Behat\ChainedStepsExtension: ~
+        FriendsOfBehat\ContextServiceExtension:
+           imports:
+               - "tests/EndToEnd/Resources/config/services.yml"
+        FriendsOfBehat\CrossContainerExtension: ~
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                env: behat
+                debug: false
+        Behat\MinkExtension:
+            default_session: symfony2
+            javascript_session: selenium2
+            show_cmd: chromium-browser %s
+            sessions:
+                symfony2:
+                    symfony2: ~
+                selenium2:
+                    selenium2: ~
+            files_path: 'features/Context/fixtures/'
+        SensioLabs\Behat\PageObjectExtension:
+            namespaces:
+                page: [Context\Page]
+            factory:
+                page_parameters:
+                    base_url: http://akeneo-pim-behat.local/

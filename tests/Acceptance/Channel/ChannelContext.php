@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Pim\Acceptance\Channel;
 
-use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
-use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
+use Behat\Behat\Tester\Exception\PendingException;
+use Pim\Acceptance\Currency\InMemoryCurrencyRepository;
 use Behat\Behat\Context\Context as BehatContext;
 use Pim\Acceptance\Category\InMemoryCategoryRepository;
 use Pim\Acceptance\Locale\InMemoryLocaleRepository;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Pim\Acceptance\ResourceBuilder;
 
 class ChannelContext implements BehatContext
 {
@@ -23,17 +23,29 @@ class ChannelContext implements BehatContext
      * @var ChannelBuilder
      */
     private $channelBuilder;
+    /** @var ResourceBuilder */
+    private $categoryBuilder;
+    /** @var ResourceBuilder */
+    private $currencyRepository;
+    /** @var ResourceBuilder */
+    private $currencyBuilder;
 
     public function __construct(
         InMemoryLocaleRepository $localeRepository,
         InMemoryCategoryRepository $categoryRepository,
         InMemoryChannelRepository $channelRepository,
-        ChannelBuilder $channelBuilder
+        InMemoryCurrencyRepository $currencyRepository,
+        ResourceBuilder $categoryBuilder,
+        ResourceBuilder $channelBuilder,
+        ResourceBuilder $currencyBuilder
     ) {
         $this->localeRepository = $localeRepository;
         $this->channelRepository = $channelRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->categoryBuilder = $categoryBuilder;
         $this->channelBuilder = $channelBuilder;
+        $this->currencyRepository = $currencyRepository;
+        $this->currencyBuilder = $currencyBuilder;
     }
 
     /**
@@ -41,9 +53,17 @@ class ChannelContext implements BehatContext
      */
     public function theFollowingChannel(string $channelCode, string $localeCodes)
     {
+        $masterCategory = $this->categoryBuilder->build(['code' => 'master']);
+        $this->categoryRepository->save($masterCategory);
+
+        $currency = $this->currencyBuilder->build(['code' => 'EUR']);
+        $this->currencyRepository->save($currency);
+
         $channelData = [
             'code' => $channelCode,
-            'locales' => explode(',', $localeCodes)
+            'locales' => explode(',', $localeCodes),
+            'category_tree' => 'master',
+            'currencies' => ['EUR']
         ];
 
         $channel = $this->channelBuilder->build($channelData);
@@ -66,6 +86,19 @@ class ChannelContext implements BehatContext
         }
 
         $channel->removeLocale($locale);
+        $this->channelRepository->save($channel);
+    }
+
+    /**
+     * @When I add the locale :localeCode from the :channelCode channel
+     */
+    public function iAddTheLocaleFromTheChannel($localeCode, $channelCode)
+    {
+        $channel = $this->channelRepository->findOneByIdentifier($channelCode);
+        $locale = $this->localeRepository->findOneByIdentifier($localeCode);
+
+        $channel->addLocale($locale);
+
         $this->channelRepository->save($channel);
     }
 }

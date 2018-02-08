@@ -1,0 +1,5 @@
+parameters:
+    pim_catalog.repository.locale.class: Pim\Acceptance\Locale\InMemoryLocaleRepository
+    pim_catalog.repository.channel.class: Pim\Acceptance\Channel\InMemoryChannelRepository
+    pim_catalog.repository.category.class: Pim\Acceptance\Category\InMemoryCategoryRepository
+    pim_catalog.repository.currency.class: Pim\Acceptance\Currency\InMemoryCurrencyRepository

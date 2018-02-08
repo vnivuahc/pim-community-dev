@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Pim\Acceptance\Acceptance;
+namespace Pim\Acceptance;
 
-use Akeneo\Bundle\BatchBundle\Item\Validator\ValidatorInterface;
 use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ResourceBuilder
 {

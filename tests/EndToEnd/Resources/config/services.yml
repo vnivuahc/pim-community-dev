@@ -1,0 +1,10 @@
+services:
+    test.locale.context:
+        class: 'Pim\EndtoEnd\Locale\LocaleContext'
+        tags:
+            - { name: fob.context_service }
+
+    test.channel.context:
+        class: 'Pim\EndtoEnd\Channel\ChannelContext'
+        tags:
+            - { name: fob.context_service }
