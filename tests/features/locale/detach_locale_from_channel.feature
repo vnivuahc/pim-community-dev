@@ -22,9 +22,9 @@ Feature: Detach locale from channels
     When I add the locale "en_US" from the "ecommerce" channel
     Then I should have activated locales "fr_FR,en_US"
 
-  @acceptance @ui
+  @acceptance
   Scenario: When a locale is removed from a channel it becomes disabled
     Given the following locales "fr_FR, en_US, de_DE"
-    And the following channel with locales
+    And the following "ecommerce" channel with locales "fr_FR,en_US"
     When I remove the locale "fr_FR" from the "ecommerce" channel
     Then I should have activated locales "en_US"
