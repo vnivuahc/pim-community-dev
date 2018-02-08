@@ -8,7 +8,7 @@
     "webpack-dev": "webpack --config webpack.config.js",
     "webpack-test": "webpack --config webpack-test.config.js",
     "webpack-watch": "webpack --progress --config webpack.config.js --watch",
-    "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"",
+    "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"; prettier --config .prettierrc.json --write \"./src/Pim/Bundle/FrontBundle/**/*.js\"",
     "before-commit": "yarn prettier && yarn test",
     "unit": "jest --no-cache --config ./unit.jest.js",
     "integration": "jest --no-cache --config ./integration.jest.js",
