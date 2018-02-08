@@ -113,9 +113,9 @@ acceptance:
     suites:
         acceptance:
             paths:
-                - '%paths.base%/features/locale'
+                - '%paths.base%/features/Acceptance'
             contexts:
-                - Pim\Behat\Context\AcceptanceContext:
+                - Pim\Acceptance\Context\AcceptanceContext:
                     - '@pim_catalog.factory.locale'
                     - '@pim_catalog.updater.locale'
                     - '@pim_catalog.repository.locale'
