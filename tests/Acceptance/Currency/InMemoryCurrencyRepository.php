@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pim\Acceptance\Currency;
+namespace Akeneo\Test\Acceptance\Currency;
 
 
 use Akeneo\Component\StorageUtils\Repository\IdentifiableObjectRepositoryInterface;

@@ -1,34 +1,34 @@
 services:
     test.channel.builder:
-        class: 'Pim\Acceptance\ResourceBuilder'
+        class: 'Akeneo\Test\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.channel'
             - '@__symfony__.pim_catalog.updater.channel'
             - '@__symfony__.validator'
 
     test.locale.builder:
-        class: 'Pim\Acceptance\ResourceBuilder'
+        class: 'Akeneo\Test\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.locale'
             - '@__symfony__.pim_catalog.updater.locale'
             - '@__symfony__.validator'
 
     test.category.builder:
-        class: 'Pim\Acceptance\ResourceBuilder'
+        class: 'Akeneo\Test\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.category'
             - '@__symfony__.pim_catalog.updater.category'
             - '@__symfony__.validator'
 
     test.currency.builder:
-        class: 'Pim\Acceptance\ResourceBuilder'
+        class: 'Akeneo\Test\Acceptance\ResourceBuilder'
         arguments:
             - '@__symfony__.pim_catalog.factory.currency'
             - '@__symfony__.pim_catalog.updater.currency'
             - '@__symfony__.validator'
 
     test.locale.context:
-        class: 'Pim\Acceptance\Locale\LocaleContext'
+        class: 'Akeneo\Test\Acceptance\Locale\LocaleContext'
         arguments:
             - '@__symfony__.pim_catalog.repository.locale'
             - '@test.locale.builder'
@@ -36,7 +36,7 @@ services:
             - { name: fob.context_service }
 
     test.channel.context:
-        class: 'Pim\Acceptance\Channel\ChannelContext'
+        class: 'Akeneo\Test\Acceptance\Channel\ChannelContext'
         arguments:
             - '@__symfony__.pim_catalog.repository.locale'
             - '@__symfony__.pim_catalog.repository.category'

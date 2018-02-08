@@ -1,6 +1,6 @@
 <?php
 
-namespace Pim\Acceptance\Channel;
+namespace Akeneo\Test\Acceptance\Channel;
 
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Collections\ArrayCollection;

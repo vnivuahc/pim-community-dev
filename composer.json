@@ -15,13 +15,12 @@
         },
         "psr-4": {
             "Pim\\Upgrade\\": "upgrades/",
-            "Akeneo\\Test\\IntegrationTestsBundle\\": "tests/IntegrationTestsBundle/",
-            "Akeneo\\Test\\Integration\\": "tests/",
-            "Pim\\Behat\\": "features/EndToEnd/",
-            "Pim\\Acceptance\\": "tests/Acceptance/",
-            "Pim\\EndToEnd\\": "tests/EndToEnd/"
+            "Akeneo\\Test\\IntegrationTestsBundle\\": "tests/Integration/IntegrationTestsBundle/",
+            "Akeneo\\Test\\Integration\\": "tests/Integration/",
+            "Pim\\Behat\\": "features/",
+            "Akeneo\\Test\\Acceptance\\": "tests/Acceptance/"
         },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php", "tests/AppKernelTest.php" ]
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php", "tests/Integration/AppKernelTest.php" ]
     },
     "require": {
         "php": ">=7.1.0",

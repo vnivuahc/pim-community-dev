@@ -2,31 +2,34 @@
 
 declare(strict_types=1);
 
-namespace Pim\Acceptance\Channel;
+namespace Akeneo\Test\Acceptance\Channel;
 
-use Behat\Behat\Tester\Exception\PendingException;
-use Pim\Acceptance\Currency\InMemoryCurrencyRepository;
+use Akeneo\Test\Acceptance\Category\InMemoryCategoryRepository;
+use Akeneo\Test\Acceptance\Currency\InMemoryCurrencyRepository;
+use Akeneo\Test\Acceptance\Locale\InMemoryLocaleRepository;
+use Akeneo\Test\Acceptance\ResourceBuilder;
 use Behat\Behat\Context\Context as BehatContext;
-use Pim\Acceptance\Category\InMemoryCategoryRepository;
-use Pim\Acceptance\Locale\InMemoryLocaleRepository;
-use Pim\Acceptance\ResourceBuilder;
 
 class ChannelContext implements BehatContext
 {
+    /** @var InMemoryLocaleRepository */
     protected $localeRepository;
+
+    /** @var InMemoryChannelRepository */
     protected $channelRepository;
-    /**
-     * @var InMemoryCategoryRepository
-     */
+
+    /** @var InMemoryCategoryRepository */
     private $categoryRepository;
-    /**
-     * @var ChannelBuilder
-     */
+
+    /** @var ResourceBuilder */
     private $channelBuilder;
+
     /** @var ResourceBuilder */
     private $categoryBuilder;
+
     /** @var ResourceBuilder */
     private $currencyRepository;
+
     /** @var ResourceBuilder */
     private $currencyBuilder;
 

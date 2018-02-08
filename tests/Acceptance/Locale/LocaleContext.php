@@ -2,21 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Pim\Acceptance\Locale;
+namespace Akeneo\Test\Acceptance\Locale;
 
-use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
-use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
+use Akeneo\Test\Acceptance\ResourceBuilder;
 use Behat\Behat\Context\Context as BehatContext;
 use PHPUnit\Framework\Assert;
-use Pim\Acceptance\ResourceBuilder;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LocaleContext implements BehatContext
 {
+    /** @var InMemoryLocaleRepository */
     private $localeRepository;
-    /**
-     * @var LocaleBuilder
-     */
+
+    /** @var ResourceBuilder */
     private $localeBuilder;
 
     public function __construct(

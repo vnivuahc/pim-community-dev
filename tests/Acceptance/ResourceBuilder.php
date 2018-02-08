@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pim\Acceptance;
+namespace Akeneo\Test\Acceptance;
 
 use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;

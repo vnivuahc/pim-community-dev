@@ -1,6 +1,6 @@
 <?php
 
-namespace Pim\Acceptance\Locale;
+namespace Akeneo\Test\Acceptance\Locale;
 
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Collections\ArrayCollection;
