@@ -1,6 +1,6 @@
 <?php
 
-namespace Pim\Acceptance\src;
+namespace Pim\Acceptance\Category;
 
 use Akeneo\Component\StorageUtils\Repository\IdentifiableObjectRepositoryInterface;
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;

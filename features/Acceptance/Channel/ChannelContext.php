@@ -7,9 +7,8 @@ namespace Pim\Acceptance\Channel;
 use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
 use Behat\Behat\Context\Context as BehatContext;
-use Pim\Acceptance\src\InMemoryCategoryRepository;
-use Pim\Acceptance\src\InMemoryChannelRepository;
-use Pim\Acceptance\src\InMemoryLocaleRepository;
+use Pim\Acceptance\Category\InMemoryCategoryRepository;
+use Pim\Acceptance\Locale\InMemoryLocaleRepository;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ChannelContext implements BehatContext

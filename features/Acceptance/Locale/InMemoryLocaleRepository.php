@@ -1,22 +1,22 @@
 <?php
 
-namespace Pim\Acceptance\src;
+namespace Pim\Acceptance\Locale;
 
 use Akeneo\Component\StorageUtils\Saver\SaverInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Pim\Component\Catalog\Model\ChannelInterface;
-use Pim\Component\Catalog\Model\CurrencyInterface;
-use Pim\Component\Catalog\Repository\ChannelRepositoryInterface;
+use Pim\Component\Catalog\Model\LocaleInterface;
+use Pim\Component\Catalog\Repository\LocaleRepositoryInterface;
 
-class InMemoryChannelRepository implements ChannelRepositoryInterface, SaverInterface
+class InMemoryLocaleRepository implements LocaleRepositoryInterface, SaverInterface
 {
     /** @var Collection */
-    private $channels;
+    private $locales;
 
     public function __construct()
     {
-        $this->channels = new ArrayCollection();
+        $this->locales = new ArrayCollection();
     }
 
     public function getIdentifierProperties()
@@ -26,67 +26,64 @@ class InMemoryChannelRepository implements ChannelRepositoryInterface, SaverInte
 
     public function findOneByIdentifier($code)
     {
-        return $this->channels->get($code);
+        return $this->locales->get($code);
     }
 
-    public function save($channel, array $options = [])
+    public function save($locale, array $options = [])
     {
-        $this->channels->set($channel->getCode(), $channel);
+        $this->locales->set($locale->getCode(), $locale);
     }
 
     /**
-     * Return the number of existing channels
+     * Return an array of activated locales
      *
-     * @return int
+     * @return LocaleInterface[]
      */
-    public function countAll()
+    public function getActivatedLocales()
     {
-        // TODO: Implement countAll() method.
+        // TODO: Implement getActivatedLocales() method.
     }
 
     /**
-     * Return an array of channel codes
+     * Return an array of activated locales codes
      *
      * @return array
      */
-    public function getChannelCodes()
+    public function getActivatedLocaleCodes()
     {
-        // TODO: Implement getChannelCodes() method.
+        // TODO: Implement getActivatedLocaleCodes() method.
     }
 
     /**
-     * Get full channels with locales and currencies
+     * Return a query builder for activated locales
      *
-     * @return ChannelInterface[]
+     * @return mixed
      */
-    public function getFullChannels()
+    public function getActivatedLocalesQB()
     {
-        // TODO: Implement getFullChannels() method.
+        // TODO: Implement getActivatedLocalesQB() method.
     }
 
     /**
-     * Get channels count for the given currency
+     * Get the deleted locales of a channel (the channel is updated but not flushed yet).
      *
-     * @param CurrencyInterface $currency
+     * @param ChannelInterface $channel
+     *
+     * @return array the list of deleted locales
+     */
+    public function getDeletedLocalesForChannel(ChannelInterface $channel)
+    {
+        // TODO: Implement getDeletedLocalesForChannel() method.
+    }
+
+    /**
+     * Return the number of activated locales
      *
      * @return int
      */
-    public function getChannelCountUsingCurrency(CurrencyInterface $currency)
+    public function countAllActivated()
     {
-        // TODO: Implement getChannelCountUsingCurrency() method.
-    }
-
-    /**
-     * Get channel choices
-     * Allow to list channels in an array like array[<code>] = <label>
-     *
-     * @param string $localeCode
-     *
-     * @return string[]
-     */
-    public function getLabelsIndexedByCode($localeCode)
-    {
-        // TODO: Implement getLabelsIndexedByCode() method.
+        // TODO: Implement countAllActivated() method.
     }
 
     /**

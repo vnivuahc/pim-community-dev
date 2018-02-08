@@ -8,7 +8,6 @@ use Akeneo\Component\StorageUtils\Factory\SimpleFactoryInterface;
 use Akeneo\Component\StorageUtils\Updater\ObjectUpdaterInterface;
 use Behat\Behat\Context\Context as BehatContext;
 use PHPUnit\Framework\Assert;
-use Pim\Acceptance\src\InMemoryLocaleRepository;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class LocaleContext implements BehatContext

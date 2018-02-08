@@ -115,7 +115,7 @@ acceptance:
     suites:
         acceptance:
             paths:
-                - '%paths.base%/features/'
+                - '%paths.base%/features/features/'
             contexts_services:
                 - test.locale.context
                 - test.channel.context
