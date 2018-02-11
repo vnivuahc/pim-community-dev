@@ -8,6 +8,8 @@
     "webpack-dev": "webpack --config webpack.config.js",
     "webpack-test": "webpack --config webpack-test.config.js",
     "webpack-watch": "webpack --progress --config webpack.config.js --watch",
+    "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
+    "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
     "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"; prettier --config .prettierrc.json --write \"./src/Pim/Bundle/FrontBundle/**/*.js\"",
     "before-commit": "yarn prettier && yarn test",
     "unit": "jest --no-cache --config ./unit.jest.js",
