@@ -10,11 +10,12 @@
     "webpack-watch": "webpack --progress --config webpack.config.js --watch",
     "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
     "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
-    "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"; prettier --config .prettierrc.json --write \"./src/Pim/Bundle/FrontBundle/**/*.js\"",
+    "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"; prettier --config .prettierrc.json --write \"./src/Pim/Bundle/FrontBundle/Resources/**/*.js\"",
     "before-commit": "yarn prettier && yarn test",
     "unit": "jest --no-cache --config ./unit.jest.js",
     "integration": "jest --no-cache --config ./integration.jest.js",
-    "acceptance": "cucumber-js -r ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/cucumber ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/features",
+    "acceptance": "cucumber-js -r ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/cucumber ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/features -f progress",
+    "acceptance-report": "node ./webpack/test/acceptance/report.js",
     "test": "yarn unit && yarn webpack-test && yarn integration && yarn acceptance"
   },
   "repository": {
@@ -32,6 +33,7 @@
     "await-to-js": "^2.0.1",
     "colors": "1.1.2",
     "cucumber": "^4.0.0",
+    "cucumber-html-reporter": "^4.0.1",
     "dep-diff": "1.0.1",
     "enzyme": "^3.3.0",
     "html-webpack-inline-source-plugin": "^0.0.9",
