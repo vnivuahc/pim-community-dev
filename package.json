@@ -11,7 +11,7 @@
     "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
     "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
     "prettier": "prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.ts\"; prettier --config .prettierrc.json --parser typescript --write \"./src/**/*.tsx\"; prettier --config .prettierrc.json --write \"./src/Pim/Bundle/FrontBundle/Resources/**/*.js\"",
-    "before-commit": "yarn prettier && yarn test",
+    "before-commit": "yarn prettier && yarn lint && yarn test",
     "unit": "jest --no-cache --config ./unit.jest.js",
     "integration": "jest --no-cache --config ./integration.jest.js",
     "acceptance": "cucumber-js -r ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/cucumber ./src/Pim/Bundle/FrontBundle/Resources/test/acceptance/features -f progress",
