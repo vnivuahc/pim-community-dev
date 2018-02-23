@@ -2,9 +2,11 @@
 
 namespace Pim\Bundle\UserBundle\Controller;
 
+use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
 use Pim\Bundle\UserBundle\Entity\User;
 use Pim\Bundle\UserBundle\Entity\UserInterface;
 use Pim\Bundle\UserBundle\Event\UserEvent;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +28,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Template("OroUserBundle:User:view.html.twig")
+     * @Template("PimUserBundle:User:view.html.twig")
      */
     public function viewProfileAction()
     {
@@ -34,7 +36,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Template("OroUserBundle:User:update.html.twig")
+     * @Template("PimUserBundle:User:update.html.twig")
      */
     public function updateProfileAction()
     {
@@ -56,7 +58,7 @@ class UserController extends Controller
     /**
      * Create user form
      *
-     * @Template("OroUserBundle:User:update.html.twig")
+     * @Template("PimUserBundle:User:update.html.twig")
      * @AclAncestor("pim_user_user_create")
      */
     public function createAction()
