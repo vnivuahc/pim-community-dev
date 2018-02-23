@@ -42,7 +42,7 @@ class GroupController extends Controller
     public function deleteAction($id)
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $groupClass = $this->container->getParameter('oro_user.group.entity.class');
+        $groupClass = $this->container->getParameter('pim_user.group.entity.class');
         $group = $em->getRepository($groupClass)->find($id);
 
         if (!$group) {
@@ -62,7 +62,7 @@ class GroupController extends Controller
      */
     private function update(Group $entity)
     {
-        if ($this->get('oro_user.form.handler.group')->process($entity)) {
+        if ($this->get('pim_user.form.handler.group')->process($entity)) {
             $this->get('session')->getFlashBag()->add(
                 'success',
                 $this->get('translator')->trans('oro.user.controller.group.message.saved')
@@ -70,14 +70,14 @@ class GroupController extends Controller
 
             return new JsonResponse(
                 [
-                    'route' => 'oro_user_group_update',
+                    'route' => 'pim_user_group_update',
                     'params' => ['id' => $entity->getId()]
                 ]
             );
         }
 
         return [
-            'form' => $this->get('oro_user.form.group')->createView(),
+            'form' => $this->get('pim_user.form.group')->createView(),
         ];
     }
 

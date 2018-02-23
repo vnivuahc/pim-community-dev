@@ -34,7 +34,7 @@ class RoleController extends Controller
     public function deleteAction($id)
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $roleClass = $this->container->getParameter('oro_user.role.entity.class');
+        $roleClass = $this->container->getParameter('pim_user.role.entity.class');
         $role = $em->getRepository($roleClass)->find($id);
 
         if (!$role) {
@@ -60,7 +60,7 @@ class RoleController extends Controller
      */
     private function update(Role $entity)
     {
-        $aclRoleHandler = $this->get('oro_user.form.handler.acl_role');
+        $aclRoleHandler = $this->get('pim_user.form.handler.acl_role');
         $aclRoleHandler->createForm($entity);
 
         if ($aclRoleHandler->process($entity)) {
@@ -70,13 +70,13 @@ class RoleController extends Controller
             );
 
             return new JsonResponse(
-                ['route' => 'oro_user_role_update', 'params' => ['id' => $entity->getId()]]
+                ['route' => 'pim_user_role_update', 'params' => ['id' => $entity->getId()]]
             );
         }
 
         return [
             'form'             => $aclRoleHandler->createView(),
-            'privilegesConfig' => $this->container->getParameter('oro_user.privileges'),
+            'privilegesConfig' => $this->container->getParameter('pim_user.privileges'),
         ];
     }
 }
