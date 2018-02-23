@@ -1514,7 +1514,7 @@ class FixturesContext extends BaseFixturesContext
     /**
      * @param string $userGroupName
      *
-     * @return \Oro\Bundle\UserBundle\Entity\Group
+     * @return Group
      *
      * @Then /^there should be a "([^"]+)" user group$/
      */
