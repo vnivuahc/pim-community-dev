@@ -18,7 +18,6 @@ define(
             renderForm: function () {
                 return $.when(
                     FormBuilder.build('pim-catalog-volume-index'),
-                    // $.get(Routing.generate('oro_config_configuration_system_get'))
                 ).then((form, response) => {
                     this.on('pim:controller:can-leave', function (event) {
                         form.trigger('pim_enrich:form:can-leave', event);
@@ -26,7 +25,7 @@ define(
 
 
                     const dummyData = {
-
+                        
                     };
 
                     form.setData(dummyData);
