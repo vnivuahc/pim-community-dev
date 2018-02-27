@@ -27,6 +27,9 @@ final class Product
     /** @var Code */
     private $family;
 
+    /** @var Code */
+    private $parent;
+
     /** @var Collection */
     private $values;
 
@@ -61,9 +64,9 @@ final class Product
         ObjectUpdaterInterface $productUpdater,
         ValidatorInterface $validator
     ) {
-
         $this->identifier = Code::fromString('my-product');
         $this->family = Code::emptyCode();
+        $this->parent = Code::emptyCode();
         $this->values = ListOfValues::initialize();
         $this->categories = ListOfCodes::initialize();
         $this->associations = ListOfCodes::initialize();
@@ -121,6 +124,18 @@ final class Product
     public function withFamily(string $family): Product
     {
         $this->family = Code::fromString($family);
+
+        return $this;
+    }
+
+    /**
+     * @param string $parent
+     *
+     * @return Product
+     */
+    public function withParent(string $parent): Product
+    {
+        $this->parent = Code::fromString($parent);
 
         return $this;
     }
