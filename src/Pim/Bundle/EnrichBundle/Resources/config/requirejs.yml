@@ -463,6 +463,8 @@ config:
                     aclResourceId: pim_enrich_api_connection_manage
                     config:
                         entity: api-connection
+                pim_enrich_catalog_volume_index:
+                    module: pim/controller/catalog-volume
                 oro_user_security_logout:
                     module: pim/controller/logout
         pim/attribute-edit-form/type-specific-form-registry:
@@ -520,11 +522,11 @@ config:
         pim/controller/front:                  pimenrich/js/controller/front
         pim/controller/template:               pimenrich/js/controller/template
         pim/controller/form:                   pimenrich/js/controller/form
-        # @TODO - Rename this to pimenrich/js/controller/product/edit and move the file
         pim/controller/product:                pimenrich/js/controller/product
         pim/controller/product/index:          pimenrich/js/controller/product/index
         pim/controller/entity-with-family-variant: pimenrich/js/controller/entity-with-family-variant
         pim/controller/family:                 pimenrich/js/controller/family
+        pim/controller/catalog-volume:         pimenrich/js/controller/catalog-volume
         pim/controller/channel/edit:           pimenrich/js/controller/channel/edit
         pim/controller/common/index:           pimenrich/js/controller/common/index
         pim/controller/association-type:       pimenrich/js/controller/association-type

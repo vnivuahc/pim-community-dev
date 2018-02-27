@@ -1444,6 +1444,7 @@ pim_menu:
         import_history: Imports history
         import_profile: Import profiles
         configuration: Configuration
+        catalog_volume: Catalog volume monitoring
         user_management: Users Management
         user: Users
         user_group: Groups
