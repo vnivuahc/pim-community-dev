@@ -16,12 +16,8 @@ define(
         return BaseForm.extend({
             template: _.template(template),
 
-            /**
-             * @param {Object} meta
-             */
-            initialize: function (meta) {
-                // this.config = _.extend({}, meta.config);
-                // this.config.modelDependent = false;
+            initialize: function (options) {
+                this.config = Object.assign({}, options.config);
 
                 return BaseForm.prototype.initialize.apply(this, arguments);
             },
@@ -29,18 +25,8 @@ define(
             /**
              * {@inheritdoc}
              */
-            configure: function () {
-
-                return BaseForm.prototype.configure.apply(this, arguments);
-            },
-
-            /**
-             * {@inheritdoc}
-             */
-            render: function () {
+            render() {
                 this.$el.html(this.template());
-
-                this.renderExtensions();
             }
         });
     }
