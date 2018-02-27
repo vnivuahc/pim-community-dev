@@ -25,7 +25,7 @@ define(
 
 
                     const dummyData = {
-                        
+
                     };
 
                     form.setData(dummyData);

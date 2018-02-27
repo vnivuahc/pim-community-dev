@@ -635,6 +635,9 @@ config:
         # Group type
         pim/group-type-edit-form/delete:                 pimenrich/js/group-type/form/delete
 
+        # Catalog volume monitoring
+        pim/catalog-volume/section:                      pimenrich/js/catalog-volume/section
+
         # Channel
         pim/channel-edit-form/delete:                           pimenrich/js/channel/form/delete
         pim/channel-edit-form/save:                             pimenrich/js/channel/form/save
@@ -1236,3 +1239,9 @@ config:
         pimcommunity/grid/view-selector/selector: pimenrich/js/grid/view-selector
         pimcommunity/grid/view-selector/line:     pimenrich/js/grid/view-selector-line
         pimcommunity/grid/view-selector/current:  pimenrich/js/grid/view-selector-current
+
+        # Catalog volume monitoring
+        pim/template/catalog-volume/header:     pimenrich/templates/catalog-volume/header.html
+        pim/template/catalog-volume/section:     pimenrich/templates/catalog-volume/section.html
+        pim/template/catalog-volume/number:     pimenrich/templates/catalog-volume/number.html
+        pim/template/catalog-volume/mean-max:     pimenrich/templates/catalog-volume/mean-max.html

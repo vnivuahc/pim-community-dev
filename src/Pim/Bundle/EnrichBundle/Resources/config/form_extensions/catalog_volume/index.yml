@@ -34,3 +34,50 @@ extensions:
         config:
             tab: pim-menu-system
             item: pim-menu-system-catalog-volume
+
+    pim-catalog-volume-axes-header:
+        parent: pim-catalog-volume-index
+        module: pim/common/simple-view
+        targetZone: content
+        config:
+            template: pim/template/catalog-volume/header
+
+    pim-catalog-volume-axes-section:
+        module: pim/catalog-volume/section
+        parent: pim-catalog-volume-index
+        template: pim/template/catalog-volume/section
+        targetZone: content
+        config:
+            title: Axes that leverage the number of product values
+            hint:
+                code: hint-product-values
+                title: Did you know that the total number of product values in your PIM is directly linked to the following axes?. To have more details, we invite you to browse this article.
+            axes:
+                products:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-clipboard
+                    title: Products
+                attributes_by_family:
+                    template: pim/template/catalog-volume/mean-max
+                    icon: icon-tag
+                    title: Attributes by family
+                channels:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-channels
+                    title: Channels
+                locales:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-flags
+                    title: Locales
+                scopable_attributes:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-tag
+                    title: Scopable attributes
+                localizable_scopable_attributes:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-tag
+                    title: Localizable and scopable attributes
+                localizable_attributes:
+                    template: pim/template/catalog-volume/number
+                    icon: icon-tag
+                    title: Localizable attribute
