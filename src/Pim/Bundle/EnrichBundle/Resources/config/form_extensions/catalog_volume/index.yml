@@ -131,7 +131,7 @@ extensions:
             code: localizable_attributes
             template: pim/template/catalog-volume/number
             icon: tag
-            title: Localizable attribute
+            title: Localizable attributes
 
     pim-catalog-volume-catalog-structure-section:
         module: pim/catalog-volume/section
