@@ -10,6 +10,7 @@ services:
             -
                 - 'update_product_value'
                 - 'add_product_value'
+                - 'add_attribute_value'
                 - 'remove_product_value'
                 - 'move_to_category'
                 - 'add_to_category'
