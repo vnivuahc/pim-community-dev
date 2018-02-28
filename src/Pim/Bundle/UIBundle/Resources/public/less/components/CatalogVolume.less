@@ -18,8 +18,29 @@
         padding: 5px;
         font-size: 13px;
         color: @AknSlateGrey;
-        height: 80px;
+        min-height: 80px;
         align-items: center;
+
+        &--header {
+            margin-bottom: 20px;
+        }
+    }
+
+    &-headerTitle {
+        font-size: 18px;
+        color: @AknDarkBlue;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        span {
+            color: @AknLightPurple
+        }
+    }
+
+    &-headerDescription {
+        font-size: 13px;
+        color: @AknSlateGrey;
+        margin-top: 10px;
     }
 
     &-icon {

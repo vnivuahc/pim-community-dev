@@ -38,11 +38,12 @@ extensions:
     # This should have its own module
     pim-catalog-volume-axes-header:
         parent: pim-catalog-volume-index
-        module: pim/common/simple-view
+        module: pim/catalog-volume/header
         targetZone: content
         position: 10
         config:
-            template: pim/template/catalog-volume/header
+            title: catalog_volume.product_values
+            description: catalog_volume.product_values_description
 
     pim-catalog-volume-product-values-section:
         module: pim/catalog-volume/section
