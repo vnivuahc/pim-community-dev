@@ -1,0 +1,65 @@
+@import '../base/variables';
+
+.AknCatalogVolume {
+    display: flex;
+
+    &-section {
+        margin-bottom: 20px;
+    }
+
+    &-sectionHeading {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-hint {
+        background: #F5F9FC;
+        display: flex;
+        padding: 5px;
+        font-size: 13px;
+        color: @AknSlateGrey;
+        height: 80px;
+        align-items: center;
+    }
+
+    &-icon {
+        min-width: 70px;
+        height: auto;
+        border-right: 1px @AknMediumGrey solid;
+        margin-right: 15px;
+    }
+
+    &-axis {
+        display: flex;
+        width: 33%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    &-axisContainer {
+        padding-top: 20px;
+        display: flex;
+        height: auto;
+        flex-wrap: wrap;
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    &-warning {
+        font-size: 13px;
+        margin-top: 10px;
+        color: @AknSlateGrey;
+    }
+
+    &-title {
+        font-size: 15px;
+    }
+
+    &-value {
+        color: @AknLightPurple;
+        font-size: 16px;
+        margin-top: 5px;
+        display: block;
+    }
+}

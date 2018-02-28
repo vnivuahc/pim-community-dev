@@ -40,6 +40,7 @@ extensions:
         parent: pim-catalog-volume-index
         module: pim/common/simple-view
         targetZone: content
+        position: 10
         config:
             template: pim/template/catalog-volume/header
 
@@ -48,6 +49,7 @@ extensions:
         parent: pim-catalog-volume-index
         template: pim/template/catalog-volume/section
         targetZone: content
+        position: 20
         config:
             title: Axes that leverage the number of product values
             hint:
@@ -56,8 +58,9 @@ extensions:
 
     pim-catalog-volume-products-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 30
         config:
             code: products
             template: pim/template/catalog-volume/number
@@ -66,8 +69,9 @@ extensions:
 
     pim-catalog-volume-attributes-by-family-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 40
         config:
             code: attributes_by_family
             template: pim/template/catalog-volume/mean-max
@@ -76,8 +80,9 @@ extensions:
 
     pim-catalog-volume-channels-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 50
         config:
             code: channels
             template: pim/template/catalog-volume/number
@@ -86,8 +91,9 @@ extensions:
 
     pim-catalog-volume-locales-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 60
         config:
             code: locales
             template: pim/template/catalog-volume/number
@@ -96,8 +102,9 @@ extensions:
 
     pim-catalog-volume-scopable-attributes-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 70
         config:
             code: scopable_attributes
             template: pim/template/catalog-volume/number
@@ -106,8 +113,9 @@ extensions:
 
     pim-catalog-volume-localizable-scopable-attributes-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 80
         config:
             code: localizable_scopable_attributes
             template: pim/template/catalog-volume/number
@@ -116,8 +124,9 @@ extensions:
 
     pim-catalog-volume-localizable-attributes-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-product-values-section
         targetZone: content
+        position: 90
         config:
             code: localizable_attributes
             template: pim/template/catalog-volume/number
@@ -129,6 +138,7 @@ extensions:
         parent: pim-catalog-volume-index
         template: pim/template/catalog-volume/section
         targetZone: content
+        position: 100
         config:
             title: Axes related to the catalog structure
             hint:
@@ -137,8 +147,9 @@ extensions:
 
     pim-catalog-volume-families-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-catalog-structure-section
         targetZone: content
+        position: 110
         config:
             code: families
             template: pim/template/catalog-volume/number
@@ -147,8 +158,9 @@ extensions:
 
     pim-catalog-volume-attributes-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-catalog-structure-section
         targetZone: content
+        position: 120
         config:
             code: attributes
             template: pim/template/catalog-volume/number
@@ -157,8 +169,9 @@ extensions:
 
     pim-catalog-volume-options-by-attribute-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-catalog-structure-section
         targetZone: content
+        position: 130
         config:
             code: options_by_attribute
             template: pim/template/catalog-volume/mean-max
@@ -167,8 +180,9 @@ extensions:
 
     pim-catalog-volume-categories-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-catalog-structure-section
         targetZone: content
+        position: 140
         config:
             code: categories
             template: pim/template/catalog-volume/number
@@ -177,8 +191,9 @@ extensions:
 
     pim-catalog-volume-category-trees-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-catalog-structure-section
         targetZone: content
+        position: 150
         config:
             code: category_trees
             template: pim/template/catalog-volume/number
@@ -190,6 +205,7 @@ extensions:
         parent: pim-catalog-volume-index
         template: pim/template/catalog-volume/section
         targetZone: content
+        position: 160
         config:
             title: Axes regarding the variant modelling
             hint:
@@ -198,8 +214,9 @@ extensions:
 
     pim-catalog-volume-product-variant-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-variant-modelling-section
         targetZone: content
+        position: 170
         config:
             code: variant_products
             template: pim/template/catalog-volume/number
@@ -208,8 +225,9 @@ extensions:
 
     pim-catalog-volume-product-model-axis:
         module: pim/catalog-volume/axis
-        parent: pim-catalog-volume-index
+        parent: pim-catalog-volume-variant-modelling-section
         targetZone: content
+        position: 180
         config:
             code: product_models
             template: pim/template/catalog-volume/number

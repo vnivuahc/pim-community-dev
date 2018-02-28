@@ -14,6 +14,7 @@ define(
         template
     ) {
         return BaseForm.extend({
+            className: 'AknCatalogVolume-section',
             template: _.template(template),
 
             initialize: function (options) {
@@ -30,6 +31,8 @@ define(
                     title: this.config.title,
                     hint: this.config.hint
                 }));
+
+                this.renderExtensions();
             }
         });
     }
