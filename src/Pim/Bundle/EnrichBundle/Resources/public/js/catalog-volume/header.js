@@ -37,8 +37,8 @@ define(
 
                 this.$el.html(this.template({
                     title: __(this.config.title)
-                    .replace('{{values}}', product_values.value)
-                    .replace('{{average}}', product_values_average.value),
+                        .replace('{{values}}', product_values.value)
+                        .replace('{{average}}', product_values_average.value),
                     description: __(this.config.description)
                 }));
             }

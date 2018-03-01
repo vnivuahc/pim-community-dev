@@ -1,12 +1,14 @@
-<div class="AknCatalogVolume-icon AknCatalogVolume-icon--<%- icon %>"></div>
-<div class="AknCatalogVolume-title">
-    <%- title %>
-    <div class="AknCatalogVolume-value">Mean: <span><%- value.mean %></span></div>
-    <div class="AknCatalogVolume-value">Max: <<span><%- value.max %></span></div>
+<div class="AknCatalogVolume-axis">
+    <div class="AknCatalogVolume-icon AknCatalogVolume-icon--<%- icon %>"></div>
+    <div class="AknCatalogVolume-title">
+        <%- title %>
+        <div class="AknCatalogVolume-value">Mean: <span><%- value.mean %></span></div>
+        <div class="AknCatalogVolume-value">Max: <<span><%- value.max %></span></div>
 
-    <% if (true === warning) { %>
-        <div class="AknCatalogVolume-warning">
-            <%- warningText %>
-        </div>
-    <% } %>
+        <% if (true === warning) { %>
+            <div class="AknCatalogVolume-warning">
+                <%- warningText %>
+            </div>
+        <% } %>
+    </div>
 </div>
