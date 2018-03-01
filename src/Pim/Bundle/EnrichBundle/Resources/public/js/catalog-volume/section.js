@@ -56,7 +56,7 @@ define(
                     const template = _.template(requireContext(type));
 
                     const el = template({
-                        icon: name,
+                        icon: name.replace(/[_]/g, '-'),
                         value: axis.value,
                         warning: axis.warning,
                         title: __(`catalog_volume.axis.${name}`),

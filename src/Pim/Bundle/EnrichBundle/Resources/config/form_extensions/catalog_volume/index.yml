@@ -35,7 +35,6 @@ extensions:
             tab: pim-menu-system
             item: pim-menu-system-catalog-volume
 
-    # This should have its own module
     pim-catalog-volume-axes-header:
         parent: pim-catalog-volume-index
         module: pim/catalog-volume/header
