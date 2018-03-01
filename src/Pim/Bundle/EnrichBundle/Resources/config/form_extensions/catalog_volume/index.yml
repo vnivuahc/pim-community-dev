@@ -82,5 +82,3 @@ extensions:
                 code: hint-variant-modelling
                 title: catalog_volume.section.variant_modelling.hint
             axes: [variant_products, product_models]
-
-
