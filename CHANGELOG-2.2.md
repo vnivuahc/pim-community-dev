@@ -1,5 +1,9 @@
 # 2.2.x
 
+## Enhancements
+
+- PIM-7143: Be able to delete products and product models in mass using a backend job
+
 ## BC breaks
 
 ### Interfaces
@@ -16,6 +20,10 @@
 - AOB-2: Change the constructor of `Pim\Bundle\DataGridBundle\EventListener\ConfigureProductGridListner` to add `Pim\Bundle\DataGridBundle\Datagrid\Configuration\ConfiguratorInterface`
 - AOB-2: Change the constructor of `Pim\Bundle\DataGridBundle\EventListener\ConfigureProductGridListner` to remove `Pim\Bundle\DataGridBundle\Datagrid\Configuration\Product\FiltersConfigurator`
 - AOB-2: Add `Akeneo\Component\StorageUtils\Repository\CountableRepositoryInterface` to `Pim\Bundle\UserBundle\Repository\UserRepositoryInterface`
+
+## New jobs
+IMPORTANT: In order for your PIM to work properly, you will need to run the following commands to add the missing job instances.
+- Add the job instance `delete_products_and_product_models`: `bin/console akeneo:batch:create-job "Akeneo Mass Edit Connector" "delete_products_and_product_models" "mass_delete" "delete_products_and_product_models" '{}' "Mass delete products" --env=prod`
 
 # 2.2.0-ALPHA1 (2018-02-21)
 
@@ -35,24 +43,16 @@
 
 - PIM-6334: Removal of class `Pim\Component\Connector\Processor\Normalization\ProductModelProcessor`
 - PIM-6334: Removal of class `Pim\Component\Connector\Reader\Database\ProductModelReader`
-
-### Constructors
-
-- PIM-6334: Change the constructor of `Pim\Component\Catalog\Normalizer\Standard\ProductModelNormalizer` to add `Pim\Bundle\CatalogBundle\Filter\CollectionFilterInterface`
-
-## BC breaks
-
-### Constructors
-
-- Change the constructor of `Pim\Component\Connector\Processor\Denormalization\Product` to remove last `Pim\Component\Catalog\Builder\ProductBuilderInterface`.
-- Change the constructor of `Pim\Component\Catalog\EntityWithFamilyVariant` to remove the `Pim\Component\Catalog\EntityWithFamily\CreateVariantProduct` dependency.
-
-### Classes
-
 - Remove last argument of method `fromFlatData` in `Pim\Component\Connector\Processor\Denormalization\Product\FindProductToImport`
 - Remove class `Pim\Component\Catalog\EntityWithFamily\CreateVariantProduct`
 - Remove class `Pim\Bundle\CatalogBundle\EventSubscriber\AddParentAProductSubscriber`
 - Remove class `Pim\Bundle\CatalogBundle\Doctrine\ORM\Query\ConvertProductToVariantProduct`
+
+### Constructors
+
+- PIM-6334: Change the constructor of `Pim\Component\Catalog\Normalizer\Standard\ProductModelNormalizer` to add `Pim\Bundle\CatalogBundle\Filter\CollectionFilterInterface`
+- Change the constructor of `Pim\Component\Connector\Processor\Denormalization\Product` to remove last `Pim\Component\Catalog\Builder\ProductBuilderInterface`.
+- Change the constructor of `Pim\Component\Catalog\EntityWithFamilyVariant` to remove the `Pim\Component\Catalog\EntityWithFamily\CreateVariantProduct` dependency.
 
 ### Services and parameters
 
