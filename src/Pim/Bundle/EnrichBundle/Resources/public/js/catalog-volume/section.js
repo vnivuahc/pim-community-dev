@@ -49,6 +49,11 @@ define(
                 this.renderAxes(this.config.axes, this.getRoot().getFormData());
             },
 
+            /**
+             * Generates the html for each axis depending on the type, appends the axis to the axis container
+             * @param  {Array} axes An array of field names for each axis
+             * @param  {Object} data An object containing data for each axis
+             */
             renderAxes(axes, data) {
                 axes.forEach(name => {
                     const axis = data[name];
