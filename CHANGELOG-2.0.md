@@ -4,6 +4,7 @@
 
 - PIM-7214: Fix a bug that prevents to select multiple items across pages in Products, Family and associations grids
 - PIM-7215: Fix wrong direction of sorting arrow in the grids
+- PIM-7203: Fix bulk actions mass edit only some of the selection
 
 # 2.0.17 (2018-03-06)
 
