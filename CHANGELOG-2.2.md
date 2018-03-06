@@ -1,5 +1,9 @@
 # 2.2.x
 
+## Enhancements
+
+- PIM-6803: Message when delete a family with family variant.
+
 ## BC breaks
 
 ### Interfaces
