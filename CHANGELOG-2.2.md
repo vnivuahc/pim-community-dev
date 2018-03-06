@@ -1,11 +1,19 @@
 # 2.2.x
 
+## Enhancements
+
+- PIM-7090: Add completeness filter on product model export builder
+
 ## BC breaks
 
 ### Interfaces
 
 - AOB-55: Add method `getTimezone` and `setTimezone` to `Pim\Bundle\UserBundle\Entity\UserInterface`
 - PIM-7163: Add `Pim\Bundle\UserBundle\Entity\UserInterface::setPhone` and `Pim\Bundle\UserBundle\Entity\UserInterface::getPhone`
+
+## Migration
+
+- New data has been indexed in Elasticsearch. Please re-index the products and product models by launching the commands `pim:product:index --all -e prod` and `pim:product-model:index --all -e prod`.
 
 # 2.2.0-ALPHA2 (2018-03-07)
 
