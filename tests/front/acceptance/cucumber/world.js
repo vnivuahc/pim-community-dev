@@ -9,9 +9,6 @@ const baseFile = fs.readFileSync(process.cwd() + '/web/test_dist/index.html', 'u
 Before({timeout: 10 * 1000}, async function() {
   process.env.RANDOM = this.parameters.random;
   process.env.MAX_RANDOM_LATENCY_MS = this.parameters.maxLatency;
-
-  console.log(this.parameters)
-
   this.baseUrl = 'http://pim.com/';
   this.browser = await puppeteer.launch({
     ignoreHTTPSErrors: true,
