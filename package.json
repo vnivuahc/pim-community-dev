@@ -10,8 +10,8 @@
     "webpack-test": "webpack --config webpack-test.config.js",
     "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
     "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
-    "acceptance": "DEBUG=puppeteer:page node webpack/test/acceptance/run.js",
-    "acceptance-debug": "node --inspect-brk webpack/test/acceptance/run.js"
+    "acceptance": "node webpack/test/acceptance/run.js",
+    "acceptance-debug": "DEBUG=puppeteer:page node webpack/test/acceptance/run.js"
   },
   "repository": {
     "type": "git",

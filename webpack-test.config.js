@@ -11,7 +11,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
 module.exports = Object.assign({}, prodConfig, {
     entry: [
         'babel-polyfill',
-        path.resolve(rootDir, './webpack/test/templates/index.js')
+        path.resolve(__dirname, './webpack/test/templates/index.js')
     ],
     output: {
         path: path.resolve('./web/test_dist/'),
@@ -25,7 +25,7 @@ module.exports = Object.assign({}, prodConfig, {
         new WebpackCleanupPlugin(),
         new HtmlWebpackPlugin({
             inject: 'head',
-            template: './webpack/test/templates/index.html',
+            template: path.resolve(__dirname, './webpack/test/templates/index.html'),
             minify: {},
             inlineSource: '.(js)$'
         }),
