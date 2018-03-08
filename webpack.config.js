@@ -162,7 +162,15 @@ module.exports = {
 
             {
                 test: /\.tsx?$/,
-                use: ['ts-loader'],
+                use: [
+                    'ts-loader',
+                    {
+                        loader: path.resolve(__dirname, 'webpack/config-loader'),
+                        options: {
+                            configMap: config
+                        }
+                    },
+                ],
                 include: /(web\/bundles)/,
                 exclude: /lib|node_modules|vendor/,
             }
