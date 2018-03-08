@@ -1,4 +1,12 @@
-const runner = require('./cucumber-runner');
+const path = require('path');
+const fs = require('fs');
 const cucumber = require('cucumber');
 
-runner(cucumber, ['./tests/front/acceptance/cucumber/step-definitions/']);
+const StepDictionary = require('step-dictionary');
+const world = path.resolve(process.cwd(), './tests/front/acceptance/cucumber/world.js');
+const community = path.resolve(process.cwd(), './tests/front/acceptance/cucumber/step-definitions')
+const dictionary = new StepDictionary(community);
+
+require(world)(cucumber)
+dictionary.paths.forEach(file => require(file)(cucumber))
+

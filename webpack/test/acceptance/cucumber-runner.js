@@ -22,8 +22,6 @@ console.log(process.env.NODE_PATH);
 const defaultParameters = [
   process.argv[0],
   process.argv[1],
-  '-r',
-  './tests/front/acceptance/cucumber/world.js',
   '-f',
   'progress'
 ];
