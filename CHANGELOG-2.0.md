@@ -11,6 +11,7 @@
 - PIM-7199: Display a message when trying to delete the pim identifier attribute
 - PIM-7217: Fix missing and disabled fields in product model import
 - PIM-7167: Fix slowness when going back to the Product grid when a family is used in the filter
+- PIM-7220: Fix the filter "is empty"
 
 # 2.0.16 (2018-02-22)
 
@@ -40,6 +41,7 @@
 ## BC Breaks
 
 - Changes the constructor of `\Pim\Bundle\CatalogBundle\EventSubscriber\SaveFamilyVariantOnFamilyUpdateSubscriber` to add `Akeneo\Component\StorageUtils\Detacher\BulkObjectDetacherInterface`
+- Changes the constructor of `\Pim\Bundle\CatalogBundle\EventSubscriber\ComputeCompletenessOnFamilyUpdateSubscriber` to remove `Pim\Component\Catalog\Repository\AttributeRequirementRepositoryInterface`
 
 # 2.0.12 (2018-01-12)
 
