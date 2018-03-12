@@ -43,6 +43,7 @@ stage("Build") {
                 sh "composer update --ansi --optimize-autoloader --no-interaction --no-progress --prefer-dist --ignore-platform-reqs --no-suggest"
                 sh "bin/console --ansi assets:install"
                 sh "bin/console --ansi pim:installer:dump-require-paths"
+                sh "mkdir -m 777 -p web/test_dist"
                 sh "bin/console --ansi pim:installer:dump-extensions"
             }
             container("node") {
