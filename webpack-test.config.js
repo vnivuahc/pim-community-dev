@@ -1,6 +1,7 @@
 /* eslint-env es6 */
 const path = require('path');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const prodConfig = require('./webpack.config.js');
 
 const config = Object.assign({}, prodConfig, {
@@ -17,5 +18,13 @@ const config = Object.assign({}, prodConfig, {
 });
 
 config.plugins.push(new HtmlWebpackInlineSourcePlugin());
+config.plugins.push(
+    new HtmlWebpackPlugin({
+        inject: 'head',
+        template: path.resolve(__dirname, './webpack/test/templates/index.html'),
+        minify: {},
+        inlineSource: '.(js)$'
+    }),
+);
 
 module.exports = config;
