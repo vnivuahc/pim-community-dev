@@ -7,8 +7,8 @@ module.exports = function(cucumber) {
     const extensions = require(`${process.cwd()}/web/test_dist/extensions.json`);
 
     Before({timeout: 10 * 1000}, async function() {
-        process.env.RANDOM = this.parameters.random;
-        process.env.MAX_RANDOM_LATENCY_MS = this.parameters.maxLatency;
+        process.env.RANDOM = this.parameters.random || true;
+        process.env.MAX_RANDOM_LATENCY_MS = this.parameters.maxLatency || 1000;
 
         this.baseUrl = 'http://pim.com/';
         this.browser = await puppeteer.launch({

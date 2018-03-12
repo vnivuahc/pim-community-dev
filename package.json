@@ -11,7 +11,8 @@
     "lint": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet",
     "lint-fix": "node ./node_modules/eslint/bin/eslint 'src/**/*.js' --ignore-path .eslintignore --quiet --fix",
     "acceptance": "cucumber-js -r ./webpack/test/acceptance/run.js -r ./tests/front/acceptance/cucumber ./tests/front/acceptance/features/",
-    "acceptance-debug": "cucumber-js -r ./webpack/test/acceptance/run.js -r ./tests/front/acceptance/cucumber/step-definitions ./tests/front/acceptance/features/ --world-parameters='{\"debug\": true}'"
+    "acceptance-debug": "cucumber-js -r ./webpack/test/acceptance/run.js -r ./tests/front/acceptance/cucumber/step-definitions ./tests/front/acceptance/features/ --world-parameters='{\"debug\": true}'",
+    "acceptance-report": "yarn run acceptance -- -f json:web/test_dist/acceptance-js.json && node webpack/test/acceptance/generate-report.js"
   },
   "repository": {
     "type": "git",
