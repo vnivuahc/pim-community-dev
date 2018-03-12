@@ -9,6 +9,7 @@ module.exports = function(cucumber) {
     Before({timeout: 10 * 1000}, async function() {
         process.env.RANDOM = this.parameters.random;
         process.env.MAX_RANDOM_LATENCY_MS = this.parameters.maxLatency;
+
         this.baseUrl = 'http://pim.com/';
         this.browser = await puppeteer.launch({
             ignoreHTTPSErrors: true,
