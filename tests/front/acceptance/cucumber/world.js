@@ -12,7 +12,7 @@ module.exports = function(cucumber) {
         this.baseUrl = 'http://pim.com/';
         this.browser = await puppeteer.launch({
             ignoreHTTPSErrors: true,
-            // args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
             headless: !this.parameters.debug,
             slowMo: 0
         });
