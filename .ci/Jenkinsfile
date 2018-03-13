@@ -92,6 +92,8 @@ stage("Build") {
                         sh "php -d memory_limit=-1 /usr/bin/composer --ansi -n run-script post-update-cmd"
                         sh "bin/console --ansi assets:install"
                         sh "bin/console --ansi pim:installer:dump-require-paths"
+                        sh "mkdir -m 777 -p web/test_dist"
+                        sh "bin/console --ansi pim:installer:dump-extensions"
                     }
                     container("node") {
                         sh "yarn install --no-progress"
@@ -176,7 +178,7 @@ stage("Test") {
             "js-acceptance": {
                 if (launchUnitTests.equals("yes")) {
                     withNode({
-                        sh "cd /home/jenkins/pim && npm run webpack-test && npm run acceptance"
+                        sh "cd /home/jenkins/pim && yarn run webpack-test && yarn run acceptance"
                     })
                 } else {
                     echo "Skipping acceptance tests"
