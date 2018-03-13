@@ -41,7 +41,6 @@
 ## BC Breaks
 
 - Changes the constructor of `\Pim\Bundle\CatalogBundle\EventSubscriber\SaveFamilyVariantOnFamilyUpdateSubscriber` to add `Akeneo\Component\StorageUtils\Detacher\BulkObjectDetacherInterface`
-- Changes the constructor of `\Pim\Bundle\CatalogBundle\EventSubscriber\ComputeCompletenessOnFamilyUpdateSubscriber` to remove `Pim\Component\Catalog\Repository\AttributeRequirementRepositoryInterface`
 
 # 2.0.12 (2018-01-12)
 
