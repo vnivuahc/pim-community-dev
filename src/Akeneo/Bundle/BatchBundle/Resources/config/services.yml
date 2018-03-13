@@ -12,6 +12,7 @@ parameters:
     akeneo_batch.entity_manager.persisted_connection_entity_manager.class: Akeneo\Bundle\BatchBundle\EntityManager\PersistedConnectionEntityManager
     akeneo_batch.connectors_config:                           ~
     akeneo_batch.jobs_config:                                 ~
+    akeneo_batch.reset_processed_items_batch_subscriber.class: Akeneo\Bundle\BatchBundle\EventListener\ResetProcessedItemsBatchSubscriber
 
 services:
     akeneo_batch.job_instance_factory:
@@ -85,3 +86,8 @@ services:
         class: '%akeneo_batch.entity_manager.persisted_connection_entity_manager.class%'
         arguments:
             - '@doctrine.orm.entity_manager'
+
+    akeneo_batch.reset_processed_items_batch_subscriber:
+        class: '%akeneo_batch.reset_processed_items_batch_subscriber.class%'
+        tags:
+            - { name: kernel.event_subscriber }

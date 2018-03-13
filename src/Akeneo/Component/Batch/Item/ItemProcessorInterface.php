@@ -17,6 +17,8 @@ namespace Akeneo\Component\Batch\Item;
  */
 interface ItemProcessorInterface
 {
+    const PROCESSED_ITEMS_BATCH_CONTEXT_KEY = 'processed_items_batch';
+
     /**
      * Process the provided item, returning a potentially modified or new item for continued
      * processing. It should not return null, instead it should throw an InvalidItemException

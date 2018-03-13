@@ -60,7 +60,9 @@ class Processor extends AbstractProcessor implements ItemProcessorInterface, Ste
      */
     public function process($item)
     {
-        $entity = $this->findOrCreateObject($item);
+        $entity = null === $this->stepExecution
+            ? $this->findOrCreateObject($item)
+            : $this->findOrCreateObjectUsingStepExecutionContext($item);
 
         try {
             $this->updater->update($entity, $item);
@@ -88,6 +90,40 @@ class Processor extends AbstractProcessor implements ItemProcessorInterface, Ste
         if (null === $entity) {
             return $this->factory->create();
         }
+
+        return $entity;
+    }
+
+    /**
+     * Find or create the entity corresponding to a given converted item, using the execution context.
+     * Using the execution context avoids creating two entities with the same identifier.
+     *
+     * @param array $convertedItem
+     *
+     * @throws \Pim\Component\Connector\Exception\MissingIdentifierException
+     *
+     * @return mixed
+     */
+    protected function findOrCreateObjectUsingStepExecutionContext(array $convertedItem)
+    {
+        $itemIdentifier = $this->getItemIdentifier($this->repository, $convertedItem);
+
+        // This error case is handled by the validation.
+        if ('' === $itemIdentifier) {
+            return $this->factory->create();
+        }
+
+        $executionContext = $this->stepExecution->getExecutionContext();
+        $processedItemsBatch = $executionContext->get(ItemProcessorInterface::PROCESSED_ITEMS_BATCH_CONTEXT_KEY) ?? [];
+
+        $entity = $processedItemsBatch[$itemIdentifier] ?? $this->repository->findOneByIdentifier($itemIdentifier);
+
+        if (null === $entity) {
+            $entity = $this->factory->create();
+        }
+
+        $processedItemsBatch[$itemIdentifier] = $entity;
+        $executionContext->put(ItemProcessorInterface::PROCESSED_ITEMS_BATCH_CONTEXT_KEY, $processedItemsBatch);
 
         return $entity;
     }
