@@ -50,5 +50,4 @@ class DumpExtensionsCommand extends ContainerAwareCommand
             throw new \RuntimeException('Unable to write file ' . $mainConfigFilePath);
         }
     }
-
 }
