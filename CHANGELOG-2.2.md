@@ -1,5 +1,9 @@
 # 2.2.x
 
+# Enhancements
+
+- PIM-7112: Add lock display on images/assets when user has no edit right.
+
 ## BC breaks
 
 ### Interfaces
